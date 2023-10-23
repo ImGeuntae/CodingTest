@@ -1,3 +1,11 @@
+"""
+0    1    0    0    0    0    0
+0    S    0    0    0    0    0
+0    0   -1    0    0    0    0
+0    0    0    0   -1    0    0
+0   -1    0    0    0    0    F
+"""
+
 def solution(m, n, puddles):
     a = [[0]*(m+1) for _ in range(n+1)]
     for [x,y] in puddles:
