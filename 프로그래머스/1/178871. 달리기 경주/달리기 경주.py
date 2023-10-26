@@ -1,16 +1,9 @@
 def solution(players, callings):
-    rank = {}
-    for num, name in enumerate(players):
-        rank[name] = num
+    rank = {name: n for n, name in enumerate(players)}
     for i in callings:
         r = rank[i]
-        p = players[r-1]
-        
-        players[r] = p
-        players[r-1] = i
-        
         rank[i] -= 1
-        rank[p] += 1
-        
+        rank[players[r-1]] += 1
+        players[r-1],players[r] = players[r], players[r-1]
     return players
         
