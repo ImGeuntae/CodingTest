@@ -1,9 +1,8 @@
 def solution(n, m, section):
-    wall = set()
+    painted = 0
     answer = 0
     for i in section:
-        if i not in wall:
+        if i > painted:
             answer += 1
-            for j in range(m):
-                wall.add(i+j)
+            painted = i+(m-1)
     return answer
