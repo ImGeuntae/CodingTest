@@ -1,11 +1,12 @@
 def solution(N, stages):
-    failure = dict()
+    clear = dict.fromkeys(range(1,N+1),0)
+    for i in stages:
+        if i <= N:
+            clear[i] += 1
     s = len(stages)
-    for i in range(1,N+1):
-        n = stages.count(i)
+    for j in range(1,N+1):
         if s:
-            failure[i] = n/s
+            s, clear[j] = s-clear[j], clear[j]/s
         else:
-            failure[i] = 0
-        s -= n
-    return [x[0] for x in sorted(failure.items(),key=lambda x:(x[1],-x[0]),reverse=True)]
+            clear[j] = 0
+    return sorted(clear, key=lambda x : clear[x], reverse=True)
