@@ -1,7 +1,6 @@
-n = -1
-for i in range(9):
-    L = list(map(int,input().split()))
-    if n < max(L):
-        n,x,y = max(L),i+1,L.index(max(L))+1,
+import sys
+board = list(map(int,sys.stdin.read().split()))
+n = max(board)
+x = board.index(n)
 print(n)
-print(x,y)
+print(x//9+1,x%9+1)
