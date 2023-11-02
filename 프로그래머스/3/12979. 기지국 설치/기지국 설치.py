@@ -1,12 +1,6 @@
 def solution(n, stations, w):
-    answer, x = 0, 1
-    while x<=n:
-        if x < stations[0]-w:
-            answer += 1
-            x += 2*w + 1
-        else:
-            x = stations[0]+w+1
-            stations.pop(0)
-            if not stations:
-                return answer-(-(n-x+1)//(2*w+1))
-    return answer
+    answer, p = 0, 1
+    for x in stations:
+        answer -= (p-x+w)//(2*w+1)
+        p = x+w+1
+    return answer-((p-1-n)//(2*w+1))
