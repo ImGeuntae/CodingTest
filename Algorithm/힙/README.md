@@ -1,7 +1,7 @@
 ## 힙
 힙은 특정한 규칙을 갖는 Tree 구조로, 최댓값과 최솟값을 찾는 연산을 빠르게 하기 위해 고안된 완전 이진트리를 기본으로 한다.
 
-파이썬에서는 binary tree 기반의 min heap 자료구조를 제공한다.
+파이썬에서 제공하는 heap 모듈은 binary tree 기반의 min heap 자료구조로 되어 있다.
 
 min heap을 사용하면 원소들이 항상 정렬된 상태로 추가되고 삭제되며, min heap에서 가장 작은 값은 언제나 index 0, 즉, binary tree의 Root에 위치한다.
 
@@ -42,8 +42,6 @@ heapq.heappop(heap)
 
 print(heapq)
 >>>[3,7,4]
-
-
 ```
 
 ### list to heap
