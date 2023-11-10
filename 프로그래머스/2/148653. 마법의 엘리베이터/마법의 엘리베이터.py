@@ -4,14 +4,11 @@ def solution(storey):
         i = int(i) + c
         if i < 5:
             ans += i
-            c = 0
-            a = 0
+            c = a = 0
         elif i > 5 or (i==5 and a):
             ans += 10-i-a
-            c = 1
-            a = 0
+            c,a = 1,0
         else:
             ans += i
-            c = 0
-            a = 1           
+            c,a = 0,1       
     return ans + c
