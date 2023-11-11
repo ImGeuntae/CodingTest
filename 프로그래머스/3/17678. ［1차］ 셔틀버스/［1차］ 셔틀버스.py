@@ -1,8 +1,7 @@
 def solution(n, t, m, timetable):
     T, shuttle = [], 9*60
     for i in timetable:
-        a,b = map(int,i.split(":"))
-        T.append(60*a+b)
+        T.append(60*int(i[:2])+int(i[-2:]))
     T.sort()
     for j in range(n):
         seat = m
@@ -15,4 +14,4 @@ def solution(n, t, m, timetable):
         ans = shuttle-t
     else:
         ans = x-1
-    return str((ans//60)//10)+str((ans//60)%10)+":"+str((ans%60)//10)+str((ans%60)%10)
+    return str(ans//60).zfill(2)+":"+str(ans%60).zfill(2)
