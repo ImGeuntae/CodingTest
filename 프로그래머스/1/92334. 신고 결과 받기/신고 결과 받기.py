@@ -1,7 +1,6 @@
 def solution(id_list, report, k):
     id_list, mail_list = dict.fromkeys(id_list,0), dict.fromkeys(id_list,"")
-    report = list(set(report))
-    for i in report:
+    for i in set(report):
         a,b = i.split(" ")
         id_list[b] += 1
         mail_list[a] += (b + " ")
