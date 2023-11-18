@@ -11,18 +11,12 @@ def solution(numbers, hand):
         else:
             if n == 0:
                 n = 11
-            L = abs(H["L"]-n)
-            L = L//3 + L%3
-            R = abs(H["R"]-n)
-            R = R//3 + R%3
-            if L < R:
+            L, R = abs(H["L"]-n), abs(H["R"]-n)
+            L, R = L//3 + L%3, R//3 + R%3
+            if L < R or (L == R and hand[0] == "l"):
                 ans += "L"
                 H["L"] = n
-            elif L > R:
+            else:
                 ans += "R"
                 H["R"] = n
-            else:
-                h = hand[0].upper()
-                ans += h
-                H[h] = n
     return ans
