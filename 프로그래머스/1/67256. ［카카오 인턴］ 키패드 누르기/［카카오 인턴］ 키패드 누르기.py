@@ -11,8 +11,7 @@ def solution(numbers, hand):
         else:
             if n == 0:
                 n = 11
-            L, R = abs(H["L"]-n), abs(H["R"]-n)
-            L, R = L//3 + L%3, R//3 + R%3
+            L, R = sum(divmod(abs(H["L"]-n),3)), sum(divmod(abs(H["R"]-n),3))
             if L < R or (L == R and hand[0] == "l"):
                 ans += "L"
                 H["L"] = n
