@@ -1,9 +1,9 @@
 def solution(progresses, speeds):
-    answer = []
+    day, answer = 0, []
     for i in range(len(progresses)):
-        day = -((progresses[i]-100)//speeds[i])
-        if (i == 0) or (day > release):
-            release = day
+        release = -((progresses[i]-100)//speeds[i])
+        if release > day:
+            day = release
             answer.append(1)
         else:
             answer[-1] += 1
