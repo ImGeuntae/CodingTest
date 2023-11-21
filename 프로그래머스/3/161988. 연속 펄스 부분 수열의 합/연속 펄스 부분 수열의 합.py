@@ -1,6 +1,7 @@
 def solution(sequence):
-    A, B = [float("-inf")],[float("-inf")]
+    A2 = B2 = ans1 = ans2 = float("-inf")
     for a,b in [(n,-n) if (idx%2) else (-n,n) for idx,n in enumerate(sequence)]:
-        A.append(max(a,a+A[-1]))
-        B.append(max(b,b+B[-1]))
-    return max(max(A),max(B))
+        A1, A2 = A2, max(a, a+A2)
+        B1, B2 = B2, max(b, b+B2)
+        ans1, ans2 = max(ans1,A2), max(ans2,B2)
+    return max(ans1,ans2)
