@@ -1,0 +1,2 @@
+def solution(data, ext, val_ext, sort_by):
+    return sorted([x for x in data if x[["code","date","maximum","remain"].index(ext)] < val_ext],key=lambda x:x[["code","date","maximum","remain"].index(sort_by)])
