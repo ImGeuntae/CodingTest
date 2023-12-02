@@ -1,6 +1,6 @@
 from collections import deque
 def solution(n, edge):
-    D = [[] for _ in range(n+1)]
+    D = [[] for k in range(n+1)]
     for a,b in edge:
         D[a].append(b)
         D[b].append(a)
