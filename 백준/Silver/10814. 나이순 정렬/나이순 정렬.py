@@ -1,3 +1,5 @@
-L = [input() for _ in range(int(input()))]
-for i in sorted(L,key=lambda x:int(x.split()[0])):
-    print(i)
+import sys
+input()
+L = [i.split() for i in sys.stdin]
+for i in sorted(L,key=lambda x:int(x[0])):
+    print(*i)
