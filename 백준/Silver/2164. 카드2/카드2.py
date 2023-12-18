@@ -1,6 +1,3 @@
-from collections import deque
-d = deque(range(1,int(input())+1))
-while len(d)>1:
-    d.popleft()
-    d.append(d.popleft())
-print(d[0])
+import math
+n=int(input())
+print(1 if n==1 else (n-2**int(math.log2(n-1)))*2)
