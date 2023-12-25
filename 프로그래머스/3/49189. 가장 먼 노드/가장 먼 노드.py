@@ -4,7 +4,7 @@ def solution(n, edge):
     for a,b in edge:
         D[a].append(b)
         D[b].append(a)
-    queue,F = deque([1]), [0 if x==1 else -1 for x in range(n+1)]
+    queue,F = deque([1]), [(x==1)-1 for x in range(n+1)]
     while queue:
         q = queue.popleft()
         for x in D[q]:
