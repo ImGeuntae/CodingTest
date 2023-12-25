@@ -8,4 +8,4 @@ def solution(n, results):
             win[w].update(win[x])
         for l in win[x]:
             lose[l].update(lose[x])
-    return sum([1 for i in range(1,n+1) if len(win[i]) + len(lose[i]) == n-1])
+    return sum((len(win[i])+len(lose[i]) == n-1) for i in range(1,n+1))
