@@ -1,15 +1,11 @@
 def solution(board, moves):
-    busket = []
+    board = [[bb for bb in b if bb] for b in zip(*board[::-1])]
+    busket = [-1]
     answer = 0
-    for i in moves:
-        m = 0
-        while m < len(board):
-            if board[m][i-1]:
-                busket.append(board[m][i-1])
-                board[m][i-1] = 0
-                break
-            m += 1
-        if len(busket) >= 2 and busket[-1] == busket[-2]:
-            answer += 2
-            del busket[-2:]
+    for m in moves:
+        if board[m-1]:
+            busket += [board[m-1].pop()]
+            if busket[-1] == busket[-2]:
+                del busket[-2:]
+                answer += 2
     return answer
