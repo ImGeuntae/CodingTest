@@ -1,5 +1,6 @@
 def solution(numbers, hand):
     H = {"L": 10, "R": 12}
+    D = {1,2,3,4,5,6,7,8,9,0,'*','#'}
     ans = ""
     for n in numbers:
         if n in [1,4,7]:
