@@ -1,5 +1,6 @@
-N,M = map(int,input().split())
-S = {int(k): int(v) for k,v in [input().split() for _ in range(N+M)]}
+import sys
+input()
+S = {int(k): int(v) for k,v in [i.split() for i in sys.stdin]}
 BFS = [0]*2 + list(range(2,101))
 Q = [1]
 while Q:
