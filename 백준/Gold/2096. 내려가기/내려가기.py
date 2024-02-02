@@ -1,7 +1,8 @@
-N = int(input())
+import sys
 m,M = [0]*3,[0]*3
-for _ in range(N):
-    a,b,c = list(map(int,input().split()))
+input()
+for i in sys.stdin:
+    a,b,c = map(int,i.split())
     m = [min(m[:2])+a,min(m)+b,min(m[1:])+c]
     M = [max(M[:2])+a,max(M)+b,max(M[1:])+c]
 print(max(M),min(m))
