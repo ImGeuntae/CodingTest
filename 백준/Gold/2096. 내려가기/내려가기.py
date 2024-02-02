@@ -1,13 +1,7 @@
 N = int(input())
-DP = [[0]*3 for _ in range(2)]
+m,M = [0]*3,[0]*3
 for _ in range(N):
-    X = list(map(int,input().split()))
-    M = []
-    for i in range(3):
-        a,b = 0+(i>1),2+(i>0)
-        M += [(min(DP[0][a:b]),max(DP[1][a:b]))]
-    for i in range(3):
-        for j in range(2):
-            DP[j][i] = X[i] + M[i][j]
-print(max(DP[1]))
-print(min(DP[0]))
+    a,b,c = list(map(int,input().split()))
+    m = [min(m[:2])+a,min(m)+b,min(m[1:])+c]
+    M = [max(M[:2])+a,max(M)+b,max(M[1:])+c]
+print(max(M),min(m))
