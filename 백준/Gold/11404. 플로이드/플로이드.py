@@ -1,20 +1,12 @@
 import sys
-import heapq
 N,M = int(input()),int(input())
-G = [[] for _ in range(N)]
+G = [[0 if i==j else float("inf") for i in range(N)] for j in range(N)]
 for i in sys.stdin:
     a,b,c = map(int,i.split())
-    G[a-1] += [(c,b-1)]
-for n in range(N):
-    dist = [float("inf")]*N
-    dist[n] = 0
-    Q = [(0,n)]
-    while Q:
-        C,B = heapq.heappop(Q)
-        if dist[B] >= C:
-            for c,b in G[B]:
-                x = c + C
-                if dist[b] > x:
-                    dist[b] = x
-                    heapq.heappush(Q,(x,b))
-    print(*[d if type(d) is int else 0 for d in dist])
+    G[a-1][b-1] = min(G[a-1][b-1],c)
+for j in range(N):
+    for i in range(N):
+        for k in range(N):
+            G[i][k] = min(G[i][k],G[i][j]+G[j][k])
+for g in G:
+    print(*[n if type(n) is int else 0 for n in g])
