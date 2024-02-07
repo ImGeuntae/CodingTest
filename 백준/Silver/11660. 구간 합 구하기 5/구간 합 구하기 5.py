@@ -1,9 +1,10 @@
 import sys
+input = sys.stdin.readline
 N,M = map(int,input().split())
-T = [list(map(int,sys.stdin.readline().split()))+[0] for _ in range(N)]+[[0]*(N+1)]
-for i in range(N):
-    for j in range(N):
-        T[i][j] = T[i][j]+T[i-1][j]+T[i][j-1]-T[i-1][j-1]
-for i in sys.stdin:
-    a,b,c,d = map(int,i.split())
-    print(T[c-1][d-1]-T[c-1][b-2]-T[a-2][d-1]+T[a-2][b-2])
+T = [[0]*(N+1)]
+for _ in range(N):
+    s = 0
+    T += [[0]+[(s:=b+s)+a for a,b in zip(T[-1][1:],list(map(int,input().split())))]]
+for _ in range(M):
+    a,b,c,d = map(int,input().split())
+    print(T[c][d] - T[c][b-1] - T[a-1][d] + T[a-1][b-1])
