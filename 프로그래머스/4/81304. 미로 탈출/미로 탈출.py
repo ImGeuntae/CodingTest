@@ -13,6 +13,8 @@ def solution(n, start, end, roads, traps):
     H = [(0,start,0)]
     while H:
         time_1,node_1,d = heapq.heappop(H)
+        if node_1 == end:
+            return time_1
         b = format(d,'b').zfill(len_traps)
         tnf_1 = (node_1 in traps and b[-1-traps_idx[node_1]] == '1')
         for time_2,node_2,tnf in time[node_1]:
@@ -32,4 +34,3 @@ def solution(n, start, end, roads, traps):
                     else:
                         D = d
                     heapq.heappush(H,(t,node_2,D))
-    return min(dist[end])
